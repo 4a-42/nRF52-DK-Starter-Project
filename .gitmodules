@@ -1,0 +1,3 @@
+[submodule "lib/nRF5-SDK"]
+	path = lib/nRF5-SDK
+	url = https://github.com/4a-42/nRF5-SDK.git
