@@ -43,6 +43,9 @@
 
 # target_link_libraries(eFreertos PUBLIC ctCmsis clUtil)
 
+set(C_CLANG_TIDY "")
+set(CXX_CLANG_TIDY "")
+
 set(nRF5_SDK_ROOT ${CMAKE_HOME_DIRECTORY}/lib/nRF5-SDK)
 set(clLogDir ${nRF5_SDK_ROOT}/components/libraries/log)
 set(cBoardsDir ${nRF5_SDK_ROOT}/components/boards)

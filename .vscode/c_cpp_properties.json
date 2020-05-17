@@ -1,0 +1,23 @@
+{
+    "env": {
+        "myCompilerPath": "C:/PROGRA~2/GNUTOO~1/92019-~1/bin/arm-none-eabi-gcc.exe"
+    },
+    "configurations": [
+        {
+            "name": "Windows ARM Embedded Toolchain",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "${myCompilerPath}",
+            "cStandard": "c18",
+            "cppStandard": "c++17",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 4
+}

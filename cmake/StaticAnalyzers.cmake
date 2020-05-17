@@ -17,12 +17,12 @@ if(ENABLE_CLANG_TIDY)
   if(CLANGTIDY)
     set(CMAKE_C_CLANG_TIDY
         ${CLANGTIDY} -extra-arg=-Wno-unknown-warning-option --extra-arg=--target=armv7m-none-eabi
-        --extra-arg=-isystemC:/PROGRA~2/GNUTOO~1/92019-~1/arm-none-eabi/include --extra-arg=-U_WIN32
-        --extra-arg=-D__GNUC__)
+        --extra-arg=-isystemC:/PROGRA~2/GNUTOO~1/92019-~1/arm-none-eabi/include --extra-arg=-D__LINT__
+        --extra-arg=-U_WIN32)
     set(CMAKE_CXX_CLANG_TIDY
         ${CLANGTIDY} -extra-arg=-Wno-unknown-warning-option --extra-arg=--target=armv7m-none-eabi
-        --extra-arg=-isystemC:/PROGRA~2/GNUTOO~1/92019-~1/arm-none-eabi/include --extra-arg=-U_WIN32
-        --extra-arg=-D__GNUC__)
+        --extra-arg=-isystemC:/PROGRA~2/GNUTOO~1/92019-~1/arm-none-eabi/include --extra-arg=-D__LINT__
+        --extra-arg=-U_WIN32)
   else()
     message(SEND_ERROR "clang-tidy requested but executable not found")
   endif()

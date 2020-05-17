@@ -12,10 +12,10 @@ include(CMakePrintHelpers)
 include(cmake/Doxygen.cmake)
 enable_doxygen()
 
-# sdk stuff
-include(cmake/nRF_SDK/nrf.cmake)
-
 # allow for static analysis options
 include(cmake/StaticAnalyzers.cmake)
+
+# sdk stuff
+include(cmake/nRF_SDK/nrf.cmake)
 
 include(src/CMakeLists.txt)
