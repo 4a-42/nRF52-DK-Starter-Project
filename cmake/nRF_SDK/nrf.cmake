@@ -143,7 +143,14 @@ target_compile_definitions(
          $<$<CONFIG:Debug>:DEBUG
          DEBUG_NRF>)
 
-target_link_options(nRF_SES_BLOB INTERFACE ${mNrfxDir}/mdk/gcc_startup_nrf52840.S -L${mNrfxDir}/mdk -Tnrf52840_xxaa.ld)
+target_link_options(
+  nRF_SES_BLOB
+  INTERFACE
+  -D__STARTUP_CONFIG
+  -I${CMAKE_HOME_DIRECTORY}/src/config
+  ${mNrfxDir}/mdk/gcc_startup_nrf52840.S
+  -L${mNrfxDir}/mdk
+  -Tnrf52840_xxaa.ld)
 
 add_library(nRF_SDK_mods INTERFACE)
 target_include_directories(nRF_SDK_mods INTERFACE ${CMAKE_HOME_DIRECTORY}/src/config)
