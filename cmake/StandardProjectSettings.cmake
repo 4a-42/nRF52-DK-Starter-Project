@@ -8,6 +8,14 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
 endif()
 
+set(CMAKE_C_FLAGS_DEBUG
+    "-g3 -DDEBUG -DDEBUG_NRF"
+    CACHE STRING "Flags used by the C compiler during DEBUG builds." FORCE)
+
+set(CMAKE_CXX_FLAGS_DEBUG
+    "-g3 -DDEBUG -DDEBUG_NRF"
+    CACHE STRING "Flags used by the CXX compiler during DEBUG builds." FORCE)
+
 find_program(CCACHE ccache)
 if(CCACHE)
   message("using ccache")
