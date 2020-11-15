@@ -46,6 +46,9 @@
 set(C_CLANG_TIDY "")
 set(CXX_CLANG_TIDY "")
 
+add_library(CMSIS_Freestanding INTERFACE)
+target_include_directories(CMSIS_Freestanding SYSTEM INTERFACE ${CMAKE_HOME_DIRECTORY}/lib/CMSIS_5/CMSIS/Core/Include)
+
 set(nRF5_SDK_ROOT ${CMAKE_HOME_DIRECTORY}/lib/nRF5-SDK)
 set(clLogDir ${nRF5_SDK_ROOT}/components/libraries/log)
 set(cBoardsDir ${nRF5_SDK_ROOT}/components/boards)
@@ -128,8 +131,7 @@ target_include_directories(
          ${mNrfxDir}/hal
          ${mNrfxDir}/mdk
          ${clBspDir}
-         ${nRF5_SDK_ROOT}/components/libraries/experimental_section_vars
-         ${nRF5_SDK_ROOT}/components/toolchain/cmsis/include)
+         ${nRF5_SDK_ROOT}/components/libraries/experimental_section_vars)
 
 target_compile_definitions(
   nRF_SES_BLOB
@@ -155,4 +157,4 @@ target_link_options(
 add_library(nRF_SDK_mods INTERFACE)
 target_include_directories(nRF_SDK_mods INTERFACE ${CMAKE_HOME_DIRECTORY}/src/config)
 
-target_link_libraries(nRF_SES_BLOB PUBLIC nRF_SDK_mods)
+target_link_libraries(nRF_SES_BLOB PUBLIC nRF_SDK_mods CMSIS_Freestanding)
