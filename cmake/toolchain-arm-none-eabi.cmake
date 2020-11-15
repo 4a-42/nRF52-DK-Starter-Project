@@ -9,8 +9,8 @@ find_program(CMAKE_CXX_COMPILER arm-none-eabi-g++
             REQUIRED)
 
 set(CMAKE_C_FLAGS_INIT
-    "--specs=nosys.specs -mcpu=cortex-m4 -mlittle-endian -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mthumb -mtp=soft -munaligned-access -fms-extensions"
+    "--specs=nosys.specs -mcpu=cortex-m4 -mlittle-endian -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mthumb -mtp=soft -munaligned-access -gpubnames -fomit-frame-pointer -fno-dwarf2-cfi-asm -fno-builtin -ffunction-sections -fdata-sections -fshort-enums -fno-common"
 )
 set(CMAKE_CXX_FLAGS_INIT
-    "--specs=nosys.specs -mcpu=cortex-m4 -mlittle-endian -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mthumb -mtp=soft -munaligned-access -fms-extensions"
+    "--specs=nosys.specs -mcpu=cortex-m4 -mlittle-endian -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mthumb -mtp=soft -munaligned-access -gpubnames -fomit-frame-pointer -fno-dwarf2-cfi-asm -fno-builtin -ffunction-sections -fdata-sections -fshort-enums -fno-common"
 )
