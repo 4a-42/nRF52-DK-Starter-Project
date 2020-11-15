@@ -1,13 +1,13 @@
 {
     "env": {
-        "myCompilerPath": "C:/PROGRA~2/GNUTOO~1/92019-~1/bin/arm-none-eabi-gcc.exe"
+        "myCompilerPath": "\"C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\9 2020-q2-update\\bin\\arm-none-eabi-gcc.exe\" -mthumb -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -specs=nosys.specs"
     },
     "configurations": [
         {
             "name": "Windows ARM Embedded Toolchain",
-            "intelliSenseMode": "gcc-x64",
+            "intelliSenseMode": "gcc-arm",
             "compilerPath": "${myCompilerPath}",
-            "cStandard": "c18",
+            "cStandard": "c17",
             "cppStandard": "c++17",
             "compileCommands": "${workspaceFolder}/build/compile_commands.json",
             "browse": {

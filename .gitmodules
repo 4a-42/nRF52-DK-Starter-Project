@@ -1,3 +1,6 @@
 [submodule "lib/nRF5-SDK"]
 	path = lib/nRF5-SDK
 	url = https://github.com/4a-42/nRF5-SDK.git
+[submodule "lib/CMSIS_5"]
+	path = lib/CMSIS_5
+	url = https://github.com/ARM-software/CMSIS_5.git
