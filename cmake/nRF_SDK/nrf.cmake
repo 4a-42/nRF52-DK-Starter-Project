@@ -67,20 +67,41 @@ set(cd_nNrfSocNosdDir ${nRF5_SDK_ROOT}/components/drivers_nrf/nrf_soc_nosd)
 set(mNrfxDir ${nRF5_SDK_ROOT}/modules/nrfx)
 set(clBspDir ${nRF5_SDK_ROOT}/components/libraries/bsp)
 
+set(FreeRTOS_ROOT ${CMAKE_HOME_DIRECTORY}/lib/FreeRTOS-Kernel)
+
+# add_library(FreeRTOS_Port STATIC)
+
+# target_sources(FreeRTOS_Port PRIVATE 
+#   ${FreeRTOS_ROOT}/croutine.c
+#   ${FreeRTOS_ROOT}/event_groups.c
+#   ${FreeRTOS_ROOT}/list.c
+#   ${FreeRTOS_ROOT}/queue.c
+#   ${FreeRTOS_ROOT}/stream_buffer.c
+#   ${FreeRTOS_ROOT}/tasks.c
+#   ${FreeRTOS_ROOT}/timers.c
+#   ${FreeRTOS_ROOT}/portable/MemMang/heap_1.c
+#   ${eFreertosDir}/portable/CMSIS/nrf52/port_cmsis.c
+#   ${eFreertosDir}/portable/CMSIS/nrf52/port_cmsis_systick.c
+#   ${eFreertosDir}/portable/GCC/nrf52/port.c
+# )
+
+# target_include_directories(FreeRTOS_Port SYSTEM PUBLIC ${FreeRTOS_ROOT}/include ${eFreertosDir}/portable/GCC/nrf52 ${eFreertosDir}/portable/CMSIS/nrf52)
+# target_compile_definitions(FreeRTOS_Port INTERFACE FREERTOS)
+
 add_library(nRF_SES_BLOB STATIC)
 target_sources(
   nRF_SES_BLOB
   PUBLIC ${clLogDir}/src/nrf_log_frontend.c
          ${clLogDir}/src/nrf_log_str_formatter.c
          ${cBoardsDir}/boards.c
-         ${eFreertosDir}/source/croutine.c
-         ${eFreertosDir}/source/event_groups.c
-         ${eFreertosDir}/source/list.c
-         ${eFreertosDir}/source/queue.c
-         ${eFreertosDir}/source/stream_buffer.c
-         ${eFreertosDir}/source/tasks.c
-         ${eFreertosDir}/source/timers.c
-         ${eFreertosDir}/source/portable/MemMang/heap_1.c
+         ${FreeRTOS_ROOT}/croutine.c
+         ${FreeRTOS_ROOT}/event_groups.c
+         ${FreeRTOS_ROOT}/list.c
+         ${FreeRTOS_ROOT}/queue.c
+         ${FreeRTOS_ROOT}/stream_buffer.c
+         ${FreeRTOS_ROOT}/tasks.c
+         ${FreeRTOS_ROOT}/timers.c
+         ${FreeRTOS_ROOT}/portable/MemMang/heap_1.c
          ${eFreertosDir}/portable/CMSIS/nrf52/port_cmsis.c
          ${eFreertosDir}/portable/CMSIS/nrf52/port_cmsis_systick.c
          ${eFreertosDir}/portable/GCC/nrf52/port.c
@@ -111,7 +132,7 @@ target_include_directories(
   PUBLIC ${clLogDir}
          ${clLogDir}/src
          ${cBoardsDir}
-         ${eFreertosDir}/source/include
+         ${FreeRTOS_ROOT}/include
          ${eFreertosDir}/portable/GCC/nrf52
          ${eFreertosDir}/portable/CMSIS/nrf52
          ${clButtonDir}
