@@ -1,48 +1,3 @@
-# add_library(ctCmsis INTERFACE)
-
-# target_include_directories(ctCmsis SYSTEM INTERFACE
-# ${CMAKE_HOME_DIRECTORY}/lib/nRF5-SDK/components/toolchain/cmsis/include)
-
-# # ./external/freertos set(eFreertosDir ${CMAKE_HOME_DIRECTORY}/lib/nRF5-SDK/external/freertos)
-
-# add_library( eFreertos STATIC ${eFreertosDir}/portable/CMSIS/nrf52/portmacro_cmsis.h
-# ${eFreertosDir}/portable/CMSIS/nrf52/port_cmsis.c ${eFreertosDir}/portable/CMSIS/nrf52/port_cmsis_systick.c
-# ${eFreertosDir}/portable/GCC/nrf52/port.c ${eFreertosDir}/portable/GCC/nrf52/portmacro.h
-# ${eFreertosDir}/source/croutine.c ${eFreertosDir}/source/event_groups.c ${eFreertosDir}/source/list.c
-# ${eFreertosDir}/source/queue.c ${eFreertosDir}/source/stream_buffer.c ${eFreertosDir}/source/tasks.c
-# ${eFreertosDir}/source/timers.c ${eFreertosDir}/source/include/croutine.h
-# ${eFreertosDir}/source/include/deprecated_definitions.h ${eFreertosDir}/source/include/event_groups.h
-# ${eFreertosDir}/source/include/FreeRTOS.h ${eFreertosDir}/source/include/list.h
-# ${eFreertosDir}/source/include/message_buffer.h ${eFreertosDir}/source/include/mpu_prototypes.h
-# ${eFreertosDir}/source/include/mpu_wrappers.h ${eFreertosDir}/source/include/portable.h
-# ${eFreertosDir}/source/include/projdefs.h ${eFreertosDir}/source/include/queue.h
-# ${eFreertosDir}/source/include/semphr.h ${eFreertosDir}/source/include/StackMacros.h
-# ${eFreertosDir}/source/include/stack_macros.h ${eFreertosDir}/source/include/stream_buffer.h
-# ${eFreertosDir}/source/include/task.h ${eFreertosDir}/source/include/timers.h
-# ${eFreertosDir}/source/portable/Common/mpu_wrappers.c ${eFreertosDir}/source/portable/MemMang/heap_1.c
-# ${eFreertosDir}/source/portable/MemMang/heap_2.c ${eFreertosDir}/source/portable/MemMang/heap_3.c
-# ${eFreertosDir}/source/portable/MemMang/heap_4.c ${eFreertosDir}/source/portable/MemMang/heap_5.c # config
-# ${CMAKE_HOME_DIRECTORY}/src/config/FreeRTOSConfig.h)
-
-# target_include_directories( eFreertos PUBLIC ${eFreertosDir}/portable/CMSIS/nrf52 ${eFreertosDir}/portable/GCC/nrf52
-# ${eFreertosDir}/source/include PRIVATE ${CMAKE_HOME_DIRECTORY}/src/config)
-
-# target_compile_definitions(eFreertos INTERFACE FREERTOS)
-
-# # ./components/libraries/util/ set(clUtilDir ${CMAKE_HOME_DIRECTORY}/lib/nRF5-SDK/components/libraries/util)
-
-# add_library( clUtil STATIC ${clUtilDir}/app_error.c ${clUtilDir}/app_error.h ${clUtilDir}/app_error_handler_gcc.c
-# ${clUtilDir}/app_error_handler_iar.c ${clUtilDir}/app_error_handler_keil.c ${clUtilDir}/app_error_weak.c
-# ${clUtilDir}/app_error_weak.h ${clUtilDir}/app_util.h ${clUtilDir}/app_util_bds.h ${clUtilDir}/app_util_platform.c
-# ${clUtilDir}/app_util_platform.h ${clUtilDir}/nordic_common.h ${clUtilDir}/nrf_assert.c ${clUtilDir}/nrf_assert.h
-# ${clUtilDir}/nrf_bitmask.h ${clUtilDir}/sdk_alloca.h ${clUtilDir}/sdk_common.h ${clUtilDir}/sdk_errors.h
-# ${clUtilDir}/sdk_macros.h ${clUtilDir}/sdk_mapped_flags.c ${clUtilDir}/sdk_mapped_flags.h ${clUtilDir}/sdk_os.h
-# ${clUtilDir}/sdk_resources.h)
-
-# target_include_directories(clUtil PUBLIC ${clUtilDir})
-
-# target_link_libraries(eFreertos PUBLIC ctCmsis clUtil)
-
 set(C_CLANG_TIDY "")
 set(CXX_CLANG_TIDY "")
 
@@ -67,20 +22,22 @@ set(cd_nNrfSocNosdDir ${nRF5_SDK_ROOT}/components/drivers_nrf/nrf_soc_nosd)
 set(mNrfxDir ${nRF5_SDK_ROOT}/modules/nrfx)
 set(clBspDir ${nRF5_SDK_ROOT}/components/libraries/bsp)
 
+set(FreeRTOS_ROOT ${CMAKE_HOME_DIRECTORY}/lib/FreeRTOS-Kernel)
+
 add_library(nRF_SES_BLOB STATIC)
 target_sources(
   nRF_SES_BLOB
   PUBLIC ${clLogDir}/src/nrf_log_frontend.c
          ${clLogDir}/src/nrf_log_str_formatter.c
          ${cBoardsDir}/boards.c
-         ${eFreertosDir}/source/croutine.c
-         ${eFreertosDir}/source/event_groups.c
-         ${eFreertosDir}/source/list.c
-         ${eFreertosDir}/source/queue.c
-         ${eFreertosDir}/source/stream_buffer.c
-         ${eFreertosDir}/source/tasks.c
-         ${eFreertosDir}/source/timers.c
-         ${eFreertosDir}/source/portable/MemMang/heap_1.c
+         ${FreeRTOS_ROOT}/croutine.c
+         ${FreeRTOS_ROOT}/event_groups.c
+         ${FreeRTOS_ROOT}/list.c
+         ${FreeRTOS_ROOT}/queue.c
+         ${FreeRTOS_ROOT}/stream_buffer.c
+         ${FreeRTOS_ROOT}/tasks.c
+         ${FreeRTOS_ROOT}/timers.c
+         ${FreeRTOS_ROOT}/portable/MemMang/heap_1.c
          ${eFreertosDir}/portable/CMSIS/nrf52/port_cmsis.c
          ${eFreertosDir}/portable/CMSIS/nrf52/port_cmsis_systick.c
          ${eFreertosDir}/portable/GCC/nrf52/port.c
@@ -111,7 +68,7 @@ target_include_directories(
   PUBLIC ${clLogDir}
          ${clLogDir}/src
          ${cBoardsDir}
-         ${eFreertosDir}/source/include
+         ${FreeRTOS_ROOT}/include
          ${eFreertosDir}/portable/GCC/nrf52
          ${eFreertosDir}/portable/CMSIS/nrf52
          ${clButtonDir}
