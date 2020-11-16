@@ -1,5 +1,5 @@
 ---
-Checks:          '*,-fuchsia-*,-modernize-use-trailing-return-type'
+Checks:          '*,-fuchsia-*,-modernize-use-trailing-return-type,-llvmlibc-restrict-system-libc-headers'
 WarningsAsErrors: ''
 HeaderFilterRegex: ''
 FormatStyle:     none

@@ -65,6 +65,7 @@ target_sources(
 
 target_include_directories(
   nRF_SES_BLOB
+  SYSTEM
   PUBLIC ${clLogDir}
          ${clLogDir}/src
          ${cBoardsDir}
