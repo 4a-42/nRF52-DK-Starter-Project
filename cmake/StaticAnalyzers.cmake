@@ -13,15 +13,15 @@ if(ENABLE_CPPCHECK)
 endif()
 
 if(ENABLE_CLANG_TIDY)
-  find_program(CLANGTIDY clang-tidy)
+  find_program(CLANGTIDY clang-tidy DOC "Path to clang-tidy executable")
   if(CLANGTIDY)
     set(CMAKE_C_CLANG_TIDY
         ${CLANGTIDY} -extra-arg=-Wno-unknown-warning-option --extra-arg=--target=armv7m-none-eabi
-        --extra-arg=-isystemC:/PROGRA~2/GNUTOO~1/92019-~1/arm-none-eabi/include --extra-arg=-D__LINT__
+        --extra-arg=-isystemC:/PROGRA~2/GNUARM~1/92020-~1/arm-none-eabi/include --extra-arg=-D__LINT__
         --extra-arg=-U_WIN32)
     set(CMAKE_CXX_CLANG_TIDY
         ${CLANGTIDY} -extra-arg=-Wno-unknown-warning-option --extra-arg=--target=armv7m-none-eabi
-        --extra-arg=-isystemC:/PROGRA~2/GNUTOO~1/92019-~1/arm-none-eabi/include --extra-arg=-D__LINT__
+        --extra-arg=-isystemC:/PROGRA~2/GNUARM~1/92020-~1/arm-none-eabi/include --extra-arg=-D__LINT__
         --extra-arg=-U_WIN32)
   else()
     message(SEND_ERROR "clang-tidy requested but executable not found")
