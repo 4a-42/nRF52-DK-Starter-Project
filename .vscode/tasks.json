@@ -12,9 +12,9 @@
             "label": "download",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceFolder}/build"
+                "cwd": "${workspaceFolder}/build/Debug"
             },
-            "command": "nrfjprog --family nRF52 --program blinky.hex"
+            "command": "nrfjprog --family nRF52 --program blinky.hex --debugreset"
         },
         {
             "label": "compile",
@@ -22,14 +22,11 @@
             "options": {
                 "cwd": "${workspaceFolder}/build"
             },
-            "command": "cmake --build ."
+            "command": "cmake --build . --config Debug"
         },
         {
             "label": "build",
             "type": "shell",
-            "options": {
-                "cwd": "${workspaceFolder}/build"
-            },
             "dependsOrder": "sequence",
             "dependsOn":[
                 "compile", 

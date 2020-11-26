@@ -4,4 +4,4 @@ target_link_libraries(blinky.elf PRIVATE nRF_SES_BLOB)
 add_custom_command(
   TARGET blinky.elf
   POST_BUILD
-  COMMAND ${CMAKE_OBJCOPY} ARGS ${CMAKE_BINARY_DIR}/blinky.elf ${CMAKE_BINARY_DIR}/blinky.hex -Oihex)
+  COMMAND ${CMAKE_OBJCOPY} ARGS ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/blinky.elf ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/blinky.hex -Oihex)

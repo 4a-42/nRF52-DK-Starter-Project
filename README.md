@@ -41,7 +41,7 @@ Recommended extension settings:
     "C_Cpp.default.intelliSenseMode": "clang-arm",
     "C_Cpp.updateChannel": "Insiders",
     "cmake.configureOnOpen": false,
-    "cmake.generator": "Ninja",
+    "cmake.generator": "Ninja Multi-Config",
     "cmake.configureArgs": [
         "-DENABLE_CLANG_TIDY:BOOL=TRUE"
     ],
@@ -50,5 +50,11 @@ Recommended extension settings:
 }
 ```
 
-TODO:  
-Research `ms-vscode.cpptools-extension-pack`
+TODO:
+
+* Research `ms-vscode.cpptools-extension-pack`
+* cmake-format seems to be broken ever since I upgraded to python 3.9
+* investigate compiling+developing on Linux
+* output object file size
+* look into github actions
+* try creating a clang toolchain file

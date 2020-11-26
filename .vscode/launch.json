@@ -9,7 +9,7 @@
             "type": "cortex-debug",
             "request": "launch",
             "servertype": "jlink",
-            "executable": "./build/blinky.elf",
+            "executable": "${command:cmake.launchTargetPath}",
             "cwd": "${workspaceRoot}",
             "device": "nRF52840_xxAA",
             "svdFile": "${workspaceRoot}/lib/nRF5-SDK/modules/nrfx/mdk/nrf52840.svd"
@@ -19,7 +19,7 @@
             "type": "cortex-debug",
             "request": "attach",
             "servertype": "jlink",
-            "executable": "./build/blinky.elf",
+            "executable": "${command:cmake.launchTargetPath}",
             "cwd": "${workspaceRoot}",
             "device": "nRF52840_xxAA",
             "svdFile": "${workspaceRoot}/lib/nRF5-SDK/modules/nrfx/mdk/nrf52840.svd"
@@ -29,7 +29,7 @@
             "type": "cortex-debug",
             "request": "launch",
             "servertype": "jlink",
-            "executable": "./build/blinky.elf",
+            "executable": "${command:cmake.launchTargetPath}",
             "cwd": "${workspaceRoot}",
             "device": "nRF52840_xxAA",
             "svdFile": "${workspaceRoot}/lib/nRF5-SDK/modules/nrfx/mdk/nrf52840.svd",
