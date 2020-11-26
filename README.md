@@ -27,7 +27,7 @@ Recommended extension settings:
 ```json
 {
     "cortex-debug.JLinkGDBServerPath": "C:/Program Files (x86)/SEGGER/JLink/JLinkGDBServerCL.exe",
-    "cortex-debug.armToolchainPath": "C:/Program Files (x86)/GNU Tools Arm Embedded/8 2019-q3-update/bin",
+    "cortex-debug.armToolchainPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/9 2020-q2-update/bin",
     "cmake.cmakePath": "C:\\Program Files\\CMake\\bin\\cmake.exe",
     "[makefile]": {
         "editor.renderWhitespace": "all"
@@ -46,7 +46,7 @@ Recommended extension settings:
         "-DENABLE_CLANG_TIDY:BOOL=TRUE"
     ],
     "clang-tidy.lintOnSave": false,
-    "clang-tidy.buildPath": "uh... still working on it"
+    "clang-tidy.buildPath": "${workspaceFolder}/build"
 }
 ```
 
