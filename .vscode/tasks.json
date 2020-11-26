@@ -1,0 +1,45 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "erase all",
+            "type": "shell",
+            "command": "nrfjprog --family nRF52 --eraseall"
+        },
+        {
+            "label": "download",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "nrfjprog --family nRF52 --program blinky.hex"
+        },
+        {
+            "label": "compile",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "cmake --build ."
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "dependsOrder": "sequence",
+            "dependsOn":[
+                "compile", 
+                "erase all", 
+                "download"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
