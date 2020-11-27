@@ -33,7 +33,7 @@ Recommended extension settings:
         "editor.tabSize": 2
     },
     "cortex-debug.JLinkGDBServerPath": "C:/Program Files (x86)/SEGGER/JLink/JLinkGDBServerCL.exe", // Windows
-    "cortex-debug.JLinkGDBServerPath": "/usr/bin/JLinkGDBServerExe", // Linux
+    "cortex-debug.JLinkGDBServerPath": "/usr/bin/JLinkGDBServerCLExe", // Linux
     "cortex-debug.armToolchainPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/9 2020-q2-update/bin", // Windows
     "cortex-debug.armToolchainPath": "/home/4a42/gcc-arm-none-eabi-9-2020-q2-update/bin/", // Linux
     "cmakeFormat.args": ["uh... still working on it"],
@@ -62,3 +62,22 @@ TODO:
 * look into github actions
 * try creating a clang toolchain file
 * JLinkGDBServerExe: cannot connect to X server
+
+NOTES:
+
+marus25.cortex-debug is not supported via WSL. From <https://github.com/Marus/cortex-debug/issues/361>:
+
+```txt
+RisinT96 commented
+
+Working with WSL can be tricky, as there are multiple problems:
+
+JLinkGDBServerExe tries to open a GUI box with progress bars when it programs/erases the device, since WSL doesnt have a GUI (no X Server), the jlink software fails.
+The solution is to use JLinkGDBServerCLExe, it's a CLI only version.
+
+WSL doesn't have USB passthrough, meaning that even if you manage to launch JLinkGDBServerCLExe, you still won't be able to connect to your device.
+
+The solution is to launch a J-link Remote Server on your windows host, and to launch JLinkGDBServerCLExe with a -ip xxx.xxx.xxx.xxx argument.
+
+As a side note, Microsoft recently announced that they will be adding GUI support to WSL: https://devblogs.microsoft.com/commandline/whats-new-in-the-windows-subsystem-for-linux-september-2020/#gui-apps.
+```
