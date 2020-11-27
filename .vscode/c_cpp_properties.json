@@ -1,12 +1,29 @@
 {
     "env": {
-        "myCompilerPath": "\"C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\9 2020-q2-update\\bin\\arm-none-eabi-gcc.exe\" -mthumb -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -specs=nosys.specs"
+        "myCompilerPathWindows": "\"C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\9 2020-q2-update\\bin\\arm-none-eabi-gcc.exe\" -mthumb -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -specs=nosys.specs",
+        "myCompilerPathLinux": "~/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-gcc -mthumb -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -specs=nosys.specs"
     },
     "configurations": [
         {
             "name": "Windows ARM Embedded Toolchain",
             "intelliSenseMode": "gcc-arm",
-            "compilerPath": "${myCompilerPath}",
+            "compilerPath": "${myCompilerPathWindows}",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "configurationProvider": "ms-vscode.cmake-tools"
+        },
+        {
+            "name": "Linux ARM Embedded Toolchain",
+            "intelliSenseMode": "gcc-arm",
+            "compilerPath": "${myCompilerPathLinux}",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "compileCommands": "${workspaceFolder}/build/compile_commands.json",

@@ -26,16 +26,19 @@ Recommended extension settings:
 
 ```json
 {
-    "cortex-debug.JLinkGDBServerPath": "C:/Program Files (x86)/SEGGER/JLink/JLinkGDBServerCL.exe",
-    "cortex-debug.armToolchainPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/9 2020-q2-update/bin",
-    "cmake.cmakePath": "C:\\Program Files\\CMake\\bin\\cmake.exe",
     "[makefile]": {
         "editor.renderWhitespace": "all"
     },
     "[cmake]": {
         "editor.tabSize": 2
     },
+    "cortex-debug.JLinkGDBServerPath": "C:/Program Files (x86)/SEGGER/JLink/JLinkGDBServerCL.exe", // Windows
+    "cortex-debug.JLinkGDBServerPath": "/usr/bin/JLinkGDBServerExe", // Linux
+    "cortex-debug.armToolchainPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/9 2020-q2-update/bin", // Windows
+    "cortex-debug.armToolchainPath": "/home/4a42/gcc-arm-none-eabi-9-2020-q2-update/bin/", // Linux
     "cmakeFormat.args": ["uh... still working on it"],
+    "cmake.cmakePath": "C:\\Program Files\\CMake\\bin\\cmake.exe", // Windows
+    "cmake.cmakePath": "/usr/local/bin/cmake", // Linux
     "C_Cpp.default.cppStandard": "c++17",
     "C_Cpp.default.cStandard": "c11",
     "C_Cpp.default.intelliSenseMode": "clang-arm",
@@ -58,3 +61,4 @@ TODO:
 * output object file size
 * look into github actions
 * try creating a clang toolchain file
+* JLinkGDBServerExe: cannot connect to X server
