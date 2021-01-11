@@ -24,6 +24,7 @@ set(clBspDir ${nRF5_SDK_ROOT}/components/libraries/bsp)
 
 set(FreeRTOS_ROOT ${CMAKE_HOME_DIRECTORY}/lib/FreeRTOS-Kernel)
 
+#add_library(nRF_SES_BLOB OBJECT) 
 add_library(nRF_SES_BLOB STATIC)
 target_sources(
   nRF_SES_BLOB
@@ -100,6 +101,7 @@ target_compile_definitions(
          INITIALIZE_USER_SECTIONS
          NO_VTOR_CONFIG
          NRF52840_XXAA
+         portDONT_DISCARD=__attribute__\(\(used\)\)
          $<$<CONFIG:Debug>:DEBUG
          DEBUG_NRF>)
 

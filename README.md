@@ -81,3 +81,5 @@ The solution is to launch a J-link Remote Server on your windows host, and to la
 
 As a side note, Microsoft recently announced that they will be adding GUI support to WSL: https://devblogs.microsoft.com/commandline/whats-new-in-the-windows-subsystem-for-linux-september-2020/#gui-apps.
 ```
+
+<https://www.adafruit.com/product/1947>

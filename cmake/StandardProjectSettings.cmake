@@ -33,7 +33,8 @@ if(ENABLE_IPO)
     RESULT
     result
     OUTPUT
-    output)
+    output
+    LANGUAGES C CXX)
   if(result)
     set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
   else()
