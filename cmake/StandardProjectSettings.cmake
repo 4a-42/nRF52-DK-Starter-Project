@@ -5,16 +5,25 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
       Debug
       CACHE STRING "Choose the type of build." FORCE)
   # Set the possible values of build type for cmake-gui, ccmake
-  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
+  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "RelWithDebInfo")
 endif()
 
 set(CMAKE_C_FLAGS_DEBUG
-    "-g3 -DDEBUG -DDEBUG_NRF"
+    "-g3"
     CACHE STRING "Flags used by the C compiler during DEBUG builds." FORCE)
 
 set(CMAKE_CXX_FLAGS_DEBUG
-    "-g3 -DDEBUG -DDEBUG_NRF"
+    "-g3"
     CACHE STRING "Flags used by the CXX compiler during DEBUG builds." FORCE)
+
+set(CMAKE_C_FLAGS_RELEASE
+    "-Os -DNDEBUG"
+    CACHE STRING "Flags used by the C compiler during RELEASE builds." FORCE)
+
+set(CMAKE_CXX_FLAGS_RELEASE
+    "-Os -DNDEBUG"
+    CACHE STRING "Flags used by the CXX compiler during RELEASE builds." FORCE)
+
 
 find_program(CCACHE ccache)
 if(CCACHE)

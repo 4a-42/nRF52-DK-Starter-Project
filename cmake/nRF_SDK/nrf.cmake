@@ -113,9 +113,6 @@ target_link_options(
   ${mNrfxDir}/mdk/gcc_startup_nrf52840.S
   -L${mNrfxDir}/mdk
   -Tnrf52840_xxaa.ld
-  -Wl,-X
-  -Wl,--omagic
-  -Wl,--gc-sections
   -Wl,-eReset_Handler)
 
 add_library(nRF_SDK_mods INTERFACE)

@@ -14,3 +14,11 @@ set(CMAKE_C_FLAGS_INIT
 set(CMAKE_CXX_FLAGS_INIT
     "--specs=nosys.specs -mcpu=cortex-m4 -mlittle-endian -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mthumb -mtp=soft -munaligned-access -gpubnames -fomit-frame-pointer -fno-dwarf2-cfi-asm -fno-builtin -ffunction-sections -fdata-sections -fshort-enums -fno-common"
 )
+
+set(CMAKE_EXE_LINKER_FLAGS
+    "-Wl,-X -Wl,--omagic -Wl,--gc-sections"
+    CACHE
+    STRING
+    "Flags used by the linker during all build types."
+    FORCE
+    )
