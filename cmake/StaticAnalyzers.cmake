@@ -18,13 +18,17 @@ if(ENABLE_CLANG_TIDY)
     get_filename_component(C_COMPILER_DIR ${CMAKE_C_COMPILER} DIRECTORY)
     set(C_STD_LIB_INCLUDE_PATH ${C_COMPILER_DIR}/../arm-none-eabi/include)
     set(CMAKE_C_CLANG_TIDY
-        ${CLANGTIDY} -extra-arg=-Wno-unknown-warning-option --extra-arg=--target=armv7m-none-eabi
-        --extra-arg=-isystem${C_STD_LIB_INCLUDE_PATH} --extra-arg=-D__LINT__
-        --extra-arg=-U_WIN32)
+        ${CLANGTIDY} -extra-arg=-Wno-unknown-warning-option --extra-arg=--target=armv7em-none-eabi
+        --extra-arg=-fgnuc-version=9
+        --extra-arg=-isystem${C_STD_LIB_INCLUDE_PATH} 
+        --extra-arg=-U_MSC_VER
+        --extra-arg=-U_MSC_FULL_VER)
     set(CMAKE_CXX_CLANG_TIDY
-        ${CLANGTIDY} -extra-arg=-Wno-unknown-warning-option --extra-arg=--target=armv7m-none-eabi
-        --extra-arg=-isystem${C_STD_LIB_INCLUDE_PATH} --extra-arg=-D__LINT__
-        --extra-arg=-U_WIN32)
+        ${CLANGTIDY} -extra-arg=-Wno-unknown-warning-option --extra-arg=--target=armv7em-none-eabi
+        --extra-arg=-fgnuc-version=9
+        --extra-arg=-isystem${C_STD_LIB_INCLUDE_PATH} 
+        --extra-arg=-U_MSC_VER
+        --extra-arg=-U_MSC_FULL_VER)
   else()
     message(SEND_ERROR "clang-tidy requested but executable not found")
   endif()
