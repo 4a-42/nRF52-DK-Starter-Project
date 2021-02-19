@@ -22,7 +22,7 @@
             "options": {
                 "cwd": "${workspaceFolder}/build"
             },
-            "command": "cmake --build . --config Debug"
+            "command": "cmake --build . --config Debug -- -v"
         },
         {
             "label": "build",

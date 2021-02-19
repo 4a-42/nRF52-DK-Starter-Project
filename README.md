@@ -11,6 +11,30 @@ cmake -DCMAKE_TOOLCHAIN_FILE="../cmake/toolchain-arm-none-eabi.cmake" -G Ninja .
 cmake --build .
 ```
 
+Installing include-what-you-use (TODO: confirm that this has no errors):
+
+```cmd
+cd "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Auxiliary/Build"
+vcvars64.bat
+cd C:/Tools/
+git clone --config core.autocrlf=false https://github.com/llvm/llvm-project.git
+cd llvm-project
+git checkout llvmorg-11.1.0
+mkdir build
+cd build
+cmake -G "Ninja" -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;libcxx;libcxxabi;libunwind;lldb;compiler-rt;lld;polly" -DCMAKE_BUILD_TYPE="Release" -DCMAKE_C_COMPILER="C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/cl.exe" -DCMAKE_CXX_COMPILER="C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/cl.exe" ..
+cmake --build .
+cd C:/Tools/
+git clone https://github.com/include-what-you-use/include-what-you-use.git iwyu
+cd iwyu
+git checkout 0.15
+mkdir build
+cd build
+cmake -G "Ninja" -DCMAKE_C_COMPILER="C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/cl.exe" -DCMAKE_CXX_COMPILER="C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/cl.exe" -DCMAKE_PREFIX_PATH="C:/Tools/llvm-project/build/" -DCMAKE_BUILD_TYPE=Release ..
+cmake --build .
+cmake --build . --target install
+```
+
 Recommended vscode extensions:
 
 * ms-vscode.cpptools

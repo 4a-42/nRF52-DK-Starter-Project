@@ -1,0 +1,14 @@
+{
+    "cmake.generator": "Ninja Multi-Config",
+    "cmake.configureArgs": [
+        "-DENABLE_CLANG_TIDY:BOOL=FALSE",
+        "-DENABLE_IPO:BOOL=FALSE",
+        "-DCMAKE_VERBOSE_MAKEFILE:BOOL=TRUE",
+        "-DENABLE_INCLUDE_WHAT_YOU_USE:BOOL=TRUE",
+        "-DENABLE_CPPCHECK:BOOL=FALSE"
+    ],
+    "clang-tidy.buildPath": "build",
+    "cmake.buildToolArgs": [
+        "-v"
+    ]
+}
